@@ -49,12 +49,12 @@ document.writeln('Access directly: ' + obj.privatedata);
 //=============================================================================
 // Example by Erikka
 document.writeln('<br><br>Example of callback using a closure<br>');
-document.writeln('<span id="callbackexample">This message will change when timer runs out.</span>');
+document.writeln('<span id="callbackexample">A message will be displayed when timer runs out</span>');
 
 function CreateAlertTimer(alertMessage, timer) {
 	function doAlert() { 
 		paragraph = document.getElementById("callbackexample");
-		paragraph.innerHTML = "<font color=red>Timer has run out, message changed.</font>";
+		paragraph.innerHTML = "<font color=red>" + alertMessage + "</font>";
 	}
 	window.setTimeout(doAlert, timer);
 }
