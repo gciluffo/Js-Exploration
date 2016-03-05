@@ -1,11 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="UTF-8">
-</head>
 <body>
-<pre>
-<!--<script src="slides_4-5.js"></script> -->
-</pre>
+<script>
+
+
+
+//=============================================================================
+// Example by Erikka
+document.writeln('Example of static data using a closure<br>');
+
+obj = (function() {
+
+	staticdata = 1;
+	
+	return function() {
+		document.writeln('Current data: ' + staticdata + '<br>');
+		staticdata++;
+	};
+	
+})();
+
+obj();
+obj();
+obj();
+
+
+
+//=============================================================================
+// Example by Erikka
+document.writeln('<br>Example of data encapsulation using a closure<br>');
+
+obj = (function() {
+	
+	privatedata = 5;
+	
+	return {
+		getdata : function() {
+			return privatedata
+		}
+	}
+	
+})();
+
+document.writeln('Using getter: ' + obj.getdata() + '<br>');
+document.writeln('Access directly: ' + obj.privatedata);
+
+
+
+</script>
 </body>
 </html>
