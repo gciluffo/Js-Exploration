@@ -110,6 +110,59 @@ function checkCookie() {
 }
 
 checkCookie();
+
+//============================================================================
+// Example by Jess on try/catch structure
+document.writeln('<br><br>Example of try/catch<br>');
+
+function lastOne(ary) {
+	if (ary.length > 0)
+		return ary[ary.length - 1];
+	else
+		throw "Can't take the last element of an empty array!";
+}
+
+function doSomethingOnLast(ary) {
+	document.writeln("Doing action...")
+	return 2000 + lastOne(ary);
+}
+
+try {
+	document.writeln(doSomethingOnLast([1, 3, 4, 7001]));
+	document.writeln('<br>Did Action Successfully!<br>');
+}
+catch(error) {
+	document.writeln("Shouldn't catch this!", error);
+}
+
+try {
+	document.writeln(doSomethingOnLast([]));
+	document.writeln('<br>Did Action Successfully!<br>');
+}
+catch(error) {
+	document.writeln("Should catch this! Hopefully this is the only catch line that printed after doing the action! Error was: ", error);
+}
+
+//============================================================================
+// Example by Jess on closure, shows where scope lies (pepperoni never accessible)
+document.writeln('<br><br>Example of closure<br>');
+topping = "pepperoni";
+function topThePizza(numSlice) {
+	var topping = "sausage";
+	var innerFunction = function() {
+		var topping = "bagel bites";
+		document.writeln(".....but I need " + topping + " on " + numSlice + " slices!")
+	};
+	
+	document.writeln("This pizza is all about the " + topping);
+	
+	innerFunction();
+	
+}
+
+topThePizza(3);
+
+
 </script>
 </body>
 </html>
